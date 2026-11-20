@@ -1,11 +1,9 @@
 ```
- ___       _______   ________  ________      
-|\  \     |\  ___ \ |\   __  \|\   ___  \    
-\ \  \    \ \   __/|\ \  \|\  \ \  \\ \  \   
- \ \  \    \ \  \_|/_\ \   __  \ \  \\ \  \  
-  \ \  \____\ \  \_|\ \ \  \ \  \ \  \\ \  \ 
-   \ \_______\ \_______\ \__\ \__\ \__\\ \__\
-    \|_______|\|_______|\|__|\|__|\|__| \|__|
+   __                  
+  / /  ___  __ _ _ __  
+ / /  / _ \/ _` | '_ \ 
+/ /__|  __/ (_| | | | |
+\____/\___|\__,_|_| |_|
 ```
 
 A lightweight alternative to Lunar Client for 1.7–1.8 potion PvP. You sign in with the Microsoft account that owns Minecraft, pick a settings profile in the launcher and press Play. The launcher writes the profile into the game folder, starts Minecraft 1.7.10 on Java 8 with the client (and OptiFine if you imported it), then closes, so nothing else runs while you play.
