@@ -1,0 +1,5 @@
+[package]
+name = "webbrowser"
+version = "1.0.2"
+edition = "2021"
+description = "Local stub: the real crate links shlwapi, which the bundled MinGW import libs lack. The launcher has no hyperlinks."

@@ -1,0 +1,26 @@
+[package]
+name = "lean-launcher"
+version = "0.1.0"
+edition = "2021"
+description = "Lightweight Minecraft 1.7.10 launcher for pot PvP"
+
+[dependencies]
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+dirs = "5"
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "native-tls", "json"] }
+sha1 = "0.10"
+sha2 = "0.10"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+eframe = { version = "0.29", default-features = false, features = ["glow", "default_fonts"] }
+rfd = "0.15"
+png = "0.18" # dev screenshots only; already in the dependency tree via eframe
+base64 = "0.22" # DPAPI blobs in accounts.json; already in the tree via reqwest
+windows-sys = { version = "0.59", features = ["Win32_System_Console", "Win32_Foundation", "Win32_Security_Cryptography"] }
+
+[profile.release]
+strip = true
+
+[patch.crates-io]
+webbrowser = { path = "stubs/webbrowser" }

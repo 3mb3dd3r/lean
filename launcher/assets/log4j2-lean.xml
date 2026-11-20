@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Logging config for Minecraft 1.7.10 (log4j 2.0-beta9), passed with -Dlog4j.configurationFile.
+  Based on Mojang's client-1.7.xml, with two changes:
+  - the console prints plain text instead of XML, so game-output.log stays readable;
+  - the "(Session ID is token:<access token>:<uuid>)" line 1.7.10 prints at startup is dropped,
+    so a Microsoft access token never reaches a log file.
+  Mojang's Log4Shell fix is kept: any message containing ${...} is dropped before it is formatted.
+-->
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="SysOut" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{HH:mm:ss}] [%t/%level]: %msg%n" />
+        </Console>
+        <RollingRandomAccessFile name="File" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="[%d{HH:mm:ss}] [%t/%level]: %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <OnStartupTriggeringPolicy />
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <filters>
+                <MarkerFilter marker="NETWORK_PACKETS" onMatch="DENY" onMismatch="NEUTRAL" />
+                <RegexFilter regex="(?s).*\$\{[^}]*\}.*" onMatch="DENY" onMismatch="NEUTRAL" />
+                <RegexFilter regex="(?s).*Session ID is.*" onMatch="DENY" onMismatch="NEUTRAL" />
+            </filters>
+            <AppenderRef ref="SysOut" />
+            <AppenderRef ref="File" />
+        </Root>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,18 @@
+# Build output
+client/build/
+client/.gradle/
+client/run/
+launcher/target/
+
+# Machine-local Cargo settings (keeps Rust build output out of OneDrive)
+launcher/.cargo/config.toml
+
+# IDE
+.idea/
+*.iml
+.vscode/
+out/
+
+# OS
+Thumbs.db
+desktop.ini

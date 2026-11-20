@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.7.10",
+  "package": "lean.client.mixin",
+  "refmap": "mixins.lean.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinEntityRenderer",
+    "MixinGuiIngame",
+    "MixinKeyBinding",
+    "MixinMinecraft"
+  ]
+}
